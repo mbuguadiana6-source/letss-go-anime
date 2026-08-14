@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stream - Lets Go Anime</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SHARED NAVBAR
+===================================================== -->
+
+<div id="navbar"></div>
+
+
+
+<!-- =====================================================
+     STREAM HERO
+===================================================== -->
+
+<section class="hero-stream">
+
+    <div class="stream-hero-content">
+
+        <button
+            id="featuredBtn"
+            class="badge"
+            type="button">
+
+            FEATURED ANIME
+
+        </button>
+
+        <h1>
+            Watch Your Favourite Anime
+        </h1>
+
+        <p>
+            Choose a show and start watching.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SEARCH
+===================================================== -->
+
+<section class="search-container">
+
+    <input
+        type="text"
+        id="search"
+        class="search-input"
+        placeholder="Search anime..."
+        autocomplete="off"
+    >
+
+    <button
+        id="searchBtn"
+        class="search-btn"
+        type="button">
+
+        Search
+
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     ANIME CARDS
+===================================================== -->
+
+<section
+    class="grid anime-grid"
+    id="animeGrid">
+
+    <div class="loading-message">
+
+        <p>
+            Loading anime...
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EPISODES
+===================================================== -->
+
+<section
+    id="episodes"
+    class="episodes-section"
+    style="display: none;">
+
+    <div class="episodes-header">
+
+        <h1 id="animeName"></h1>
+
+        <button
+            id="backBtn"
+            class="btn secondary"
+            type="button">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+
+    <div id="episodeList"></div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VIDEO MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="videoModal"
+    style="display: none;">
+
+    <div class="modal-content">
+
+        <button
+            id="closeModalBtn"
+            class="close-modal"
+            type="button">
+
+            ×
+
+        </button>
+
+
+        <video
+            id="player"
+            controls
+            playsinline
+            preload="metadata">
+
+            Your browser does not support HTML5 video playback.
+
+        </video>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SHARED FOOTER
+===================================================== -->
+
+<div id="footer"></div>
+
+
+
+<!-- =====================================================
+     SHARED COMPONENTS
+===================================================== -->
+
+<script src="js/components.js"></script>
+
+
+<!-- =====================================================
+     STREAM JAVASCRIPT
+===================================================== -->
+
+<script
+    type="module"
+    src="js/stream.js">
+</script>
+
+
+</body>
+
+</html>

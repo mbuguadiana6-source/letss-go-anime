@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | Lets Go Anime</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main>
+
+        <h1>LETS GO ANIME</h1>
+
+        <h2>Admin Dashboard</h2>
+
+        <p id="admin-status">
+            Checking permissions...
+        </p>
+
+        <button id="logout-button">
+            Logout
+        </button>
+
+    </main>
+
+
+    <script type="module">
+
+        import { supabase }
+        from "../js/supabase.js";
+
+
+        async function checkAdmin() {
+
+            const status =
+                document.getElementById("admin-status");
+
+
+            const {
+                data: { user },
+                error: userError
+            } = await supabase.auth.getUser();
+
+
+            if (userError || !user) {
+
+                status.textContent =
+                    "You must be logged in.";
+
+                return;
+
+            }
+
+
+            const { data: profile, error } =
+                await supabase
+                    .from("profiles")
+                    .select("role")
+                    .eq("id", user.id)
+                    .single();
+
+
+            if (error) {
+
+                console.error(
+                    "Profile error:",
+                    error
+                );
+
+                status.textContent =
+                    "Could not verify permissions.";
+
+                return;
+
+            }
+
+
+            if (profile.role !== "admin") {
+
+                status.textContent =
+                    "Access denied. Admins only.";
+
+                return;
+
+            }
+
+
+            status.textContent =
+                "Admin access confirmed!";
+
+        }
+
+
+        document
+            .getElementById("logout-button")
+            .addEventListener("click", async () => {
+
+                await supabase.auth.signOut();
+
+                window.location.href =
+                    "../auth.html";
+
+            });
+
+
+        checkAdmin();
+
+    </script>
+
+</body>
+
+</html>

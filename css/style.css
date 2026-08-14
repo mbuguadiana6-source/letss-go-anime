@@ -1,0 +1,2158 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, Arial;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    background: #07070c;
+    color: #fff;
+}
+
+
+/* =====================================================
+   PAGE WRAPPER
+===================================================== */
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 40px;
+
+    background: rgba(10, 10, 15, 0.55);
+
+    backdrop-filter: blur(14px);
+
+    border-bottom:
+        1px solid rgba(255, 106, 0, 0.08);
+}
+
+
+.logo {
+    font-weight: 800;
+
+    color: #ff6a00;
+
+    letter-spacing: 1px;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+
+nav a {
+    margin-left: 18px;
+
+    text-decoration: none;
+
+    color: #cfcfcf;
+
+    font-size: 14px;
+
+    padding: 6px 10px;
+
+    border-radius: 8px;
+
+    transition: 0.25s;
+}
+
+
+nav a:hover {
+    background:
+        rgba(255, 106, 0, 0.12);
+
+    color: #ff6a00;
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.profile-link {
+    margin-left: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+}
+
+
+.profile-link img {
+    width: 34px;
+    height: 34px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(255, 106, 0, 0.45);
+
+    transition: 0.25s;
+}
+
+
+.profile-link img:hover {
+    border-color: #ff6a00;
+
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   HOME HERO
+===================================================== */
+
+.hero {
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 8%;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.hero-bg {
+    position: absolute;
+
+    inset: 0;
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter: brightness(0.45);
+
+    opacity: 0;
+
+    transition:
+        opacity 0.8s ease-in-out;
+}
+
+
+.hero-bg.active {
+    opacity: 1;
+}
+
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(7, 7, 12, 0.4),
+            #07070c
+        );
+
+    z-index: 1;
+}
+
+
+.hero-content {
+    position: relative;
+
+    max-width: 600px;
+
+    z-index: 2;
+}
+
+
+.tag {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    background:
+        rgba(255, 106, 0, 0.15);
+
+    color: #ff6a00;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    margin-bottom: 14px;
+}
+
+
+.hero h1 {
+    font-size: 52px;
+
+    line-height: 1.05;
+}
+
+
+.hero h1 span {
+    color: #ff6a00;
+}
+
+
+.hero p {
+    margin-top: 14px;
+
+    color: #b5b5b5;
+}
+
+
+.hero-buttons {
+    margin-top: 20px;
+
+    display: flex;
+
+    gap: 12px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn {
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.25s;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    text-align: center;
+}
+
+
+.btn.primary {
+    background: #ff6a00;
+
+    color: #fff;
+}
+
+
+.btn.primary:hover {
+    box-shadow:
+        0 0 20px rgba(255, 106, 0, 0.35);
+
+    transform: translateY(-2px);
+}
+
+
+.btn.secondary {
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    color: #ddd;
+}
+
+
+.btn.secondary:hover {
+    background:
+        rgba(255, 106, 0, 0.12);
+
+    color: #ff6a00;
+}
+
+
+/* =====================================================
+   GENERAL GRID
+===================================================== */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
+
+    gap: 18px;
+
+    padding: 30px 8%;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+    background: #151520;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 106, 0, 0.08);
+
+    transition: 0.25s;
+
+    position: relative;
+}
+
+
+.card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(255, 106, 0, 0.25);
+}
+
+
+.card img {
+    width: 100%;
+
+    height: 160px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.card-content {
+    padding: 14px;
+}
+
+
+.card h3 {
+    color: #ff6a00;
+}
+
+
+.card p {
+    font-size: 13px;
+
+    color: #aaa;
+
+    margin-top: 6px;
+}
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+.price {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    background:
+        rgba(0, 0, 0, 0.75);
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    color: #ff6a00;
+
+    font-weight: 700;
+
+    font-size: 12px;
+
+    border:
+        1px solid rgba(255, 106, 0, 0.2);
+
+    margin-top: 0 !important;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   SHOP / ART PAGE CONTENT
+===================================================== */
+
+/*
+   IMPORTANT:
+   The navbar is fixed.
+   This margin keeps the heading below it.
+*/
+
+.container {
+    width: 100%;
+
+    flex: 1;
+
+    padding-top: 1px;
+
+    padding-bottom: 60px;
+}
+
+
+/* =====================================================
+   SHOP / ART HERO
+===================================================== */
+
+.shop-hero {
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: 110px auto 40px;
+
+    padding: 0 20px;
+}
+
+
+.shop-hero h1 {
+    margin-bottom: 10px;
+
+    font-size: 36px;
+}
+
+
+.shop-hero p {
+    color: #bdbdbd;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   SHOP PAGE
+===================================================== */
+
+.shop-page {
+    margin-top: 110px;
+
+    padding: 20px 8%;
+}
+
+
+.shop-search {
+    width: 100%;
+
+    max-width: 450px;
+
+    padding: 12px;
+
+    border:
+        1px solid rgba(255, 106, 0, 0.2);
+
+    background: #151520;
+
+    color: white;
+
+    border-radius: 10px;
+
+    outline: none;
+}
+
+
+/* =====================================================
+   TRENDING
+===================================================== */
+
+.trending {
+    padding: 60px 8%;
+}
+
+
+.section-text {
+    color: #aaa;
+
+    margin-top: 8px;
+
+    margin-bottom: 25px;
+}
+
+
+.trending-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+.trend-item {
+    background: #111;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 106, 0, 0.08);
+
+    transition: 0.25s;
+}
+
+
+.trend-item:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(255, 106, 0, 0.25);
+}
+
+
+.trend-item img {
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.trend-item .card-content {
+    padding: 20px;
+}
+
+
+.trend-item h3 {
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+
+.trend-item p {
+    color: #ccc;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   PROFILE VIEW
+===================================================== */
+
+#profileView .card {
+    background: #151520;
+
+    border-radius: 12px;
+}
+
+
+.post-anim {
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    animation:
+        slideIn 0.4s ease forwards;
+}
+
+
+@keyframes slideIn {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    background: #111;
+
+    color: white;
+
+    padding: 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 30px;
+
+    font-size: 14px;
+
+    margin-top: auto;
+}
+
+
+.footer p {
+    margin: 0;
+
+    color: #ccc;
+}
+
+
+.social-icons {
+    display: flex;
+
+    gap: 15px;
+}
+
+
+.social-icons a {
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.social-icons a:hover {
+    color: #ff2bd6;
+}
+
+
+#footer {
+    margin-top: auto;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   STREAM PAGE HERO
+===================================================== */
+
+.hero-stream {
+    min-height: 420px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(15, 16, 21, 0.98)
+        ),
+        url("../images/anime1.jpg")
+        center / cover;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 50px;
+
+    margin-top: 0;
+}
+
+
+.stream-hero-content {
+    max-width: 700px;
+}
+
+
+.badge {
+    display: inline-block;
+
+    background: #ff6600;
+
+    color: white;
+
+    padding: 6px 13px;
+
+    border-radius: 5px;
+
+    font-size: 0.78rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+}
+
+
+.hero-stream h1 {
+    font-size: 2.8rem;
+
+    margin: 0 0 12px;
+
+    color: white;
+}
+
+
+.hero-stream p {
+    color: #cccccc;
+
+    font-size: 1rem;
+
+    margin: 0;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-container {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 30px 40px;
+}
+
+
+.search-input {
+    flex: 1;
+
+    background: #1f2029;
+
+    border: 1px solid #333;
+
+    color: white;
+
+    padding: 13px 15px;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    font-size: 1rem;
+}
+
+
+.search-input:focus {
+    border-color: #ff6600;
+}
+
+
+.search-btn {
+    background: #ff6600;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 22px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+.search-btn:hover {
+    background: #e65c00;
+}
+
+
+/* =====================================================
+   ANIME GRID
+===================================================== */
+
+.anime-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 25px;
+
+    padding: 10px 40px 50px;
+}
+
+
+.anime-card {
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+
+.anime-card img {
+    width: 100%;
+
+    height: 320px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.anime-card h2 {
+    color: #ff6600;
+
+    font-size: 1.25rem;
+
+    margin-top: 0;
+}
+
+
+.anime-card p {
+    color: #aaa;
+
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   EPISODES
+===================================================== */
+
+.episodes-section {
+    display: none;
+
+    padding: 40px;
+}
+
+
+.episodes-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.episodes-header h1 {
+    margin: 0;
+
+    color: white;
+}
+
+
+.episode {
+    background: #1f2029;
+
+    padding: 16px 20px;
+
+    margin: 10px 0;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.episode span {
+    color: white;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   VIDEO MODAL
+===================================================== */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 2000;
+
+    padding: 20px;
+}
+
+
+.modal-content {
+    width: 90%;
+
+    max-width: 950px;
+
+    background: black;
+
+    position: relative;
+}
+
+
+.modal-content iframe {
+    width: 100%;
+
+    height: 520px;
+
+    border: none;
+
+    display: block;
+}
+
+
+.close-modal {
+    position: absolute;
+
+    right: 12px;
+
+    top: 8px;
+
+    font-size: 30px;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    width: 40px;
+
+    height: 40px;
+}
+
+
+.close-modal:hover {
+    color: #ff6600;
+}
+
+
+/* =====================================================
+   EMPTY SEARCH
+===================================================== */
+
+.empty-message {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: #aaa;
+}
+
+
+.empty-message h2 {
+    color: white;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   ART COMMUNITY
+===================================================== */
+
+.community-page {
+    flex: 1;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding-top: 110px;
+
+    padding-bottom: 80px;
+}
+
+
+.community-header {
+    width: min(1200px, 90%);
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+}
+
+
+.community-header h1 {
+    margin: 10px 0 15px;
+}
+
+
+.community-header p {
+    max-width: 650px;
+
+    margin: 0 auto 25px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CREATE POST
+===================================================== */
+
+.post-box {
+    width: min(850px, 90%);
+
+    margin: 0 auto 80px;
+
+    box-sizing: border-box;
+}
+
+
+.post-box-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 30px;
+}
+
+
+.post-box-header h2 {
+    margin: 8px 0 0;
+}
+
+
+.close-btn {
+    background: none;
+
+    border: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+
+.post-box label {
+    display: block;
+
+    margin: 18px 0 8px;
+
+    font-weight: 600;
+}
+
+
+.post-box select,
+.post-box textarea,
+.post-box input[type="file"] {
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+.post-box select {
+    padding: 12px;
+}
+
+
+.post-box textarea {
+    min-height: 150px;
+
+    padding: 14px;
+
+    resize: vertical;
+}
+
+
+.post-box input[type="file"] {
+    padding: 10px 0;
+}
+
+
+/* =====================================================
+   IMAGE PREVIEW
+===================================================== */
+
+.upload-preview {
+    display: none;
+
+    width: 100%;
+
+    max-height: 450px;
+
+    object-fit: cover;
+
+    margin-top: 20px;
+
+    border-radius: 8px;
+}
+
+
+/* =====================================================
+   POST ACTIONS
+===================================================== */
+
+.post-actions {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+.status-message {
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   COMMUNITY FEED
+===================================================== */
+
+.community-feed {
+    width: min(1200px, 90%);
+
+    margin: 0 auto;
+}
+
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+
+.section-heading h2 {
+    margin-top: 8px;
+}
+
+
+.community-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.community-post {
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.post-image {
+    width: 100%;
+
+    height: 300px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+.post-content {
+    padding: 22px;
+}
+
+
+.post-content h3 {
+    margin: 0 0 10px;
+}
+
+
+.post-content p {
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+.post-type {
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    z-index: 2;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(0, 0, 0, 0.8);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.post-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.delete-post {
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+
+.loading-message,
+.community-grid .empty-message {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .community-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 12px 20px;
+    }
+
+
+    nav {
+        margin-top: 10px;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 8px;
+    }
+
+
+    nav a {
+        margin-left: 0;
+
+        margin-right: 10px;
+    }
+
+
+    .profile-link {
+        position: absolute;
+
+        right: 20px;
+
+        top: 12px;
+
+        margin-left: 0;
+    }
+
+
+    .hero {
+        height: auto;
+
+        padding:
+            140px 20px 60px;
+    }
+
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+
+    .grid {
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(200px, 1fr)
+            );
+
+        padding: 20px 4%;
+    }
+
+
+    .btn {
+        width: 100%;
+    }
+
+
+    .trending {
+        padding: 30px 4%;
+    }
+
+
+    .trending-row {
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .community-page {
+        padding-top: 90px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .hero-stream {
+        min-height: 360px;
+
+        padding: 30px 20px;
+    }
+
+
+    .hero-stream h1 {
+        font-size: 2rem;
+    }
+
+
+    .search-container {
+        padding: 20px;
+    }
+
+
+    .anime-grid {
+        padding: 10px 20px 40px;
+    }
+
+
+    .episodes-section {
+        padding: 25px 20px;
+    }
+
+
+    .episodes-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .episode {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .episode .btn {
+        width: 100%;
+    }
+
+
+    .modal-content {
+        width: 96%;
+    }
+
+
+    .modal-content iframe {
+        height: 260px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .community-header {
+        margin-bottom: 45px;
+    }
+
+
+    .community-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .post-actions {
+        flex-direction: column;
+    }
+
+
+    .post-actions .btn {
+        width: 100%;
+    }
+
+
+    .shop-hero {
+        margin-top: 100px;
+    }
+
+
+    .shop-hero h1 {
+        font-size: 30px;
+    }
+
+}
+/* =====================================================
+   STREAM PAGE
+===================================================== */
+
+/* Hero must sit below the fixed shared navbar */
+
+.hero-stream {
+    min-height: 420px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(15, 16, 21, 0.98)
+        ),
+        url("../images/anime1.jpg")
+        center / cover;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 50px;
+
+    margin-top: 76px;
+}
+
+
+.stream-hero-content {
+    max-width: 700px;
+}
+
+
+.badge {
+    display: inline-block;
+
+    background: #ff6600;
+
+    color: white;
+
+    padding: 6px 13px;
+
+    border-radius: 5px;
+
+    font-size: 0.78rem;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+}
+
+
+.hero-stream h1 {
+    font-size: 2.8rem;
+
+    margin: 0 0 12px;
+
+    color: white;
+}
+
+
+.hero-stream p {
+    color: #cccccc;
+
+    font-size: 1rem;
+
+    margin: 0;
+}
+
+
+/* =====================================================
+   STREAM SEARCH
+===================================================== */
+
+.search-container {
+
+    display: flex;
+
+    gap: 10px;
+
+    padding: 30px 40px;
+}
+
+
+.search-input {
+
+    flex: 1;
+
+    background: #1f2029;
+
+    border: 1px solid #333;
+
+    color: white;
+
+    padding: 13px 15px;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    font-size: 1rem;
+}
+
+
+.search-input:focus {
+
+    border-color: #ff6600;
+
+}
+
+
+.search-btn {
+
+    background: #ff6600;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 22px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+
+.search-btn:hover {
+
+    background: #e65c00;
+
+}
+
+
+/* =====================================================
+   STREAM ANIME CARDS
+===================================================== */
+
+.anime-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 25px;
+
+    padding: 10px 40px 50px;
+}
+
+
+.anime-card {
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+
+.anime-card img {
+
+    width: 100%;
+
+    height: 320px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.anime-card h2 {
+
+    color: #ff6600;
+
+    font-size: 1.25rem;
+
+    margin-top: 0;
+}
+
+
+.anime-card p {
+
+    color: #aaa;
+
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   EPISODES
+===================================================== */
+
+.episodes-section {
+
+    display: none;
+
+    padding: 40px;
+
+    min-height: 400px;
+
+}
+
+
+.episodes-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.episodes-header h1 {
+
+    margin: 0;
+
+    color: white;
+}
+
+
+.episode {
+
+    background: #1f2029;
+
+    padding: 16px 20px;
+
+    margin: 10px 0;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.episode span {
+
+    color: white;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   VIDEO MODAL
+===================================================== */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 2000;
+
+    padding: 20px;
+
+}
+
+
+.modal-content {
+
+    width: 90%;
+
+    max-width: 950px;
+
+    background: black;
+
+    position: relative;
+}
+
+
+.modal-content iframe {
+
+    width: 100%;
+
+    height: 520px;
+
+    border: none;
+
+    display: block;
+}
+
+
+.close-modal {
+
+    position: absolute;
+
+    right: 12px;
+
+    top: 8px;
+
+    font-size: 30px;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    width: 40px;
+
+    height: 40px;
+}
+
+
+.close-modal:hover {
+
+    color: #ff6600;
+
+}
+
+
+/* =====================================================
+   EMPTY SEARCH RESULT
+===================================================== */
+
+.empty-message {
+
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    color: #aaa;
+}
+
+
+.empty-message h2 {
+
+    color: white;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   STREAM MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .hero-stream {
+
+        min-height: 360px;
+
+        padding: 30px 20px;
+
+        margin-top: 110px;
+
+    }
+
+
+    .hero-stream h1 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .search-container {
+
+        padding: 20px;
+
+    }
+
+
+    .anime-grid {
+
+        padding: 10px 20px 40px;
+
+    }
+
+
+    .episodes-section {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .episodes-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .episode {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .episode .btn {
+
+        width: 100%;
+
+    }
+
+
+    .modal-content {
+
+        width: 96%;
+
+    }
+
+
+    .modal-content iframe {
+
+        height: 260px;
+
+    }
+
+}
+/* =====================================================
+   CART PAGE
+===================================================== */
+
+.cart-page {
+    padding-bottom: 80px;
+}
+
+
+/* CART PRODUCTS */
+
+#cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    align-items: center;
+    gap: 25px;
+
+    padding: 20px;
+
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 12px;
+}
+
+
+.cart-item-image {
+    width: 110px;
+    height: 110px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+
+.cart-item-info h3 {
+    margin: 0 0 8px;
+}
+
+
+.cart-item-info p {
+    margin: 0 0 12px;
+}
+
+
+/* QUANTITY */
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.quantity-btn {
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid #444;
+    background: #1b1b1b;
+    color: white;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+.quantity-btn:hover {
+    background: #333;
+}
+
+
+.quantity-controls span {
+    min-width: 25px;
+    text-align: center;
+}
+
+
+/* REMOVE */
+
+.remove-item {
+    margin-top: 10px;
+
+    border: none;
+    background: transparent;
+
+    color: #ff6b35;
+
+    cursor: pointer;
+}
+
+
+.remove-item:hover {
+    text-decoration: underline;
+}
+
+
+/* PRODUCT TOTAL */
+
+.cart-item-total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   CART SUMMARY
+===================================================== */
+
+.cart-summary {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: #111;
+
+    border: 1px solid #292929;
+
+    border-radius: 12px;
+
+    max-width: 500px;
+
+    margin-left: auto;
+}
+
+
+.cart-summary h2 {
+    margin-top: 0;
+}
+
+
+.cart-summary p {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #292929;
+}
+
+
+#checkout-btn {
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+#clear-cart {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   EMPTY CART
+===================================================== */
+
+#empty-cart {
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background: #111;
+
+    border-radius: 12px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .cart-item {
+        grid-template-columns: 80px 1fr;
+        gap: 15px;
+    }
+
+
+    .cart-item-image {
+        width: 80px;
+        height: 80px;
+    }
+
+
+    .cart-item-total {
+        grid-column: 2;
+    }
+
+
+    .cart-summary {
+        max-width: none;
+    }
+
+}

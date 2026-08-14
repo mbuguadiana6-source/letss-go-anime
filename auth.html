@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account | Lets Go Anime</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="auth-container">
+
+        <h1>LETS GO ANIME</h1>
+
+        <!-- SIGN UP -->
+
+        <section>
+            <h2>Create Account</h2>
+
+            <form id="signup-form">
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Username"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="display-name"
+                    placeholder="Display Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="signup-email"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="signup-password"
+                    placeholder="Password"
+                    minlength="6"
+                    required
+                >
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p id="signup-message"></p>
+
+        </section>
+
+
+        <!-- LOGIN -->
+
+        <section>
+
+            <h2>Login</h2>
+
+            <form id="login-form">
+
+                <input
+                    type="email"
+                    id="login-email"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Password"
+                    required
+                >
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <p id="login-message"></p>
+
+        </section>
+
+
+        <!-- USER STATUS -->
+
+        <section>
+
+            <h2>Account Status</h2>
+
+            <p id="user-status">
+                Checking session...
+            </p>
+
+            <button id="logout-button" hidden>
+                Logout
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script type="module" src="js/auth.js"></script>
+
+</body>
+</html>

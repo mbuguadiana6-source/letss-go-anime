@@ -1,0 +1,157 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Cart - Lets Go Anime</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+     SHARED NAVBAR
+================================================== -->
+
+<div id="navbar"></div>
+
+
+
+<!-- =================================================
+     CART
+================================================== -->
+
+<main class="container cart-page">
+
+    <section class="shop-hero">
+
+        <h1>
+            Your Cart
+        </h1>
+
+        <p>
+            Review your anime merchandise
+            before checking out.
+        </p>
+
+    </section>
+
+
+
+    <!-- CART PRODUCTS -->
+
+    <section id="cart-items">
+
+        <!-- Products will be inserted by cart.js -->
+
+    </section>
+
+
+
+    <!-- CART SUMMARY -->
+
+    <section
+        class="cart-summary"
+        id="cart-summary">
+
+        <h2>
+            Order Summary
+        </h2>
+
+        <p>
+            Items:
+            <span id="cart-total-items">0</span>
+        </p>
+
+        <p>
+            Subtotal:
+            <strong>
+                KSh <span id="cart-subtotal">0</span>
+            </strong>
+        </p>
+
+
+        <button
+            class="btn primary"
+            id="checkout-btn">
+
+            Proceed to Checkout
+
+        </button>
+
+
+        <button
+            class="btn"
+            id="clear-cart">
+
+            Clear Cart
+
+        </button>
+
+    </section>
+
+
+
+    <!-- EMPTY CART -->
+
+    <section
+        id="empty-cart"
+        style="display: none;">
+
+        <h2>
+            Your cart is empty
+        </h2>
+
+        <p>
+            You haven't added any anime merchandise yet.
+        </p>
+
+        <a
+            href="shop.html"
+            class="btn primary">
+
+            Continue Shopping
+
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =================================================
+     SHARED FOOTER
+================================================== -->
+
+<div id="footer"></div>
+
+
+
+<!-- =================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="js/cart.js"></script>
+
+<script src="js/components.js"></script>
+
+
+</body>
+
+</html>
+```
